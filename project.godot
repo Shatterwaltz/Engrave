@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Enums="*res://enums.gd"
 PlayerUtils="*res://player_utils.gd"
+PlayerSettings="*res://player_settings.gd"
 
 [input]
 
