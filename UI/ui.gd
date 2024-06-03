@@ -1,6 +1,8 @@
 extends Node
 class_name UI
 
+@onready var interact_prompt: TextureRect = $InteractPrompt
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

@@ -13,8 +13,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mousePosition: Vector2
 
 func _process(_delta):
-	pass
-
+	var interactable: Interactable
+	if interact_ray.is_colliding() && interact_ray.get_collider() is Interactable:
+		interactable = interact_ray.get_collider() as Interactable
+		ui.interact_prompt.set_interaction_type(interactable.interaction_type)
+	else:
+		ui.interact_prompt.clear_interaction()
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():

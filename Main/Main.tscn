@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://djytgd1its24k"]
+[gd_scene load_steps=7 format=3 uid="uid://djytgd1its24k"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_0qyd7"]
 [ext_resource type="PackedScene" uid="uid://gy5q14223wy8" path="res://Areas/Debug Room/DebugRoom.tscn" id="1_ykn47"]
+[ext_resource type="Texture2D" uid="uid://b1fjs5pdf6lcg" path="res://Assets/UI/interact_speak.png" id="2_0gglq"]
 [ext_resource type="PackedScene" uid="uid://c66pg48nfmd76" path="res://Player/Player.tscn" id="2_sc1ya"]
+[ext_resource type="Script" path="res://UI/interact_prompt.gd" id="3_3huax"]
 
 [sub_resource type="Environment" id="Environment_7rcr7"]
 ambient_light_source = 2
@@ -10,12 +12,24 @@ ambient_light_color = Color(0.909804, 0.909804, 0.909804, 1)
 
 [node name="Main" type="Node3D"]
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="UI" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 script = ExtResource("1_0qyd7")
+
+[node name="InteractPrompt" type="TextureRect" parent="UI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("2_0gglq")
+script = ExtResource("3_3huax")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7rcr7")
