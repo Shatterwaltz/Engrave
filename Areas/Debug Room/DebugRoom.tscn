@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://gy5q14223wy8"]
+[gd_scene load_steps=4 format=3 uid="uid://gy5q14223wy8"]
+
+[ext_resource type="PackedScene" uid="uid://bub4wocwid7yu" path="res://Entities/NPCs/Veil.tscn" id="1_l7ax4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_88ylt"]
 size = Vector3(2, 1, 2)
@@ -17,3 +19,6 @@ shape = SubResource("BoxShape3D_88ylt")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_6abte")
 skeleton = NodePath("../..")
+
+[node name="Veil" parent="." instance=ExtResource("1_l7ax4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.00809, 0, -2.70613)

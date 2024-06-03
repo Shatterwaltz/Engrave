@@ -1,3 +1,3 @@
 extends Node
 
-var sens: float = 1.0
+var sens: float = .2

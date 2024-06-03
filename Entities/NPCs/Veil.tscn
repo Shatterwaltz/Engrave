@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bub4wocwid7yu"]
+
+[ext_resource type="Script" path="res://Entities/NPCs/veil.gd" id="1_74ii2"]
+[ext_resource type="PackedScene" uid="uid://bajhtqbcb1n70" path="res://Components/Interactable.tscn" id="1_y6k5d"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oubra"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_slbfg"]
+
+[node name="Veil" type="Node3D"]
+script = ExtResource("1_74ii2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_oubra")
+
+[node name="Interactable" parent="." instance=ExtResource("1_y6k5d")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_slbfg")

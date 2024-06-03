@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://djytgd1its24k"]
+[gd_scene load_steps=5 format=3 uid="uid://djytgd1its24k"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_0qyd7"]
 [ext_resource type="PackedScene" uid="uid://gy5q14223wy8" path="res://Areas/Debug Room/DebugRoom.tscn" id="1_ykn47"]
 [ext_resource type="PackedScene" uid="uid://c66pg48nfmd76" path="res://Player/Player.tscn" id="2_sc1ya"]
+
+[sub_resource type="Environment" id="Environment_7rcr7"]
+ambient_light_source = 2
+ambient_light_color = Color(0.909804, 0.909804, 0.909804, 1)
 
 [node name="Main" type="Node3D"]
 
@@ -13,8 +17,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_0qyd7")
 
-[node name="World" type="Node3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7rcr7")
 
-[node name="DebugRoom" parent="World" instance=ExtResource("1_ykn47")]
+[node name="Area" type="Node3D" parent="."]
+
+[node name="DebugRoom" parent="Area" instance=ExtResource("1_ykn47")]
 
 [node name="Player" parent="." instance=ExtResource("2_sc1ya")]
