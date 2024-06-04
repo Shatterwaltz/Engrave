@@ -6,4 +6,4 @@ func _ready():
 
 func _on_interact():
 	print("Oh, I've been interacted...?")
-	interactable.interaction_type = Enums.InteractionType.EXAMINE
+	interactable.interaction_type = Enums.InteractionType.TAKE
