@@ -2,7 +2,7 @@ extends TextureRect
 
 const EXAMINE: Texture2D = preload("res://Assets/UI/examine.png")
 const INTERACT_SPEAK: Texture2D = preload("res://Assets/UI/interact_speak.png")
-const INTERACT_TAKE: Texture2D = preload("res://Assets/UI/take.png")
+const INTERACT_TAKE: Texture2D = preload("res://Assets/UI/interact_take.png")
 
 var previous_interaction_type: Enums.InteractionType = Enums.InteractionType.SPEAK
 

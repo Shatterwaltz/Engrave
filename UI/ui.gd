@@ -2,9 +2,11 @@ extends Node
 class_name UI
 
 @onready var interact_prompt: TextureRect = $InteractPrompt
+@onready var dialogue_box = $DialogueBox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	DialogueManager.dialogue_box = dialogue_box
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
@@ -18,4 +20,4 @@ func _unhandled_input(_event):
 
 func pause_game():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().quit()
+
