@@ -1,4 +1,4 @@
-extends Control
+extends NinePatchRect
 class_name DialogueBox
 
 signal display_finished

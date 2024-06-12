@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://djytgd1its24k"]
+[gd_scene load_steps=12 format=3 uid="uid://djytgd1its24k"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_0qyd7"]
 [ext_resource type="PackedScene" uid="uid://gy5q14223wy8" path="res://Areas/Debug Room/DebugRoom.tscn" id="1_ykn47"]
 [ext_resource type="Texture2D" uid="uid://b1fjs5pdf6lcg" path="res://Assets/UI/interact_speak.png" id="2_0gglq"]
 [ext_resource type="PackedScene" uid="uid://c66pg48nfmd76" path="res://Player/Player.tscn" id="2_sc1ya"]
 [ext_resource type="Script" path="res://UI/interact_prompt.gd" id="3_3huax"]
-[ext_resource type="Texture2D" uid="uid://bv0k7yvd82sm5" path="res://Assets/UI/dialogue_box.png" id="4_00tkv"]
 [ext_resource type="Script" path="res://UI/dialogue_box.gd" id="5_3q8ca"]
 
 [sub_resource type="SystemFont" id="SystemFont_2ao3o"]
@@ -52,12 +51,13 @@ custom_minimum_size = Vector2(1000, 280)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-texture = ExtResource("4_00tkv")
 region_rect = Rect2(0, 0, 128, 128)
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 script = ExtResource("5_3q8ca")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/DialogueBox"]
