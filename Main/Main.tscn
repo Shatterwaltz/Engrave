@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djytgd1its24k"]
+[gd_scene load_steps=13 format=3 uid="uid://djytgd1its24k"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_0qyd7"]
 [ext_resource type="PackedScene" uid="uid://gy5q14223wy8" path="res://Areas/Debug Room/DebugRoom.tscn" id="1_ykn47"]
@@ -10,6 +10,16 @@
 
 [sub_resource type="SystemFont" id="SystemFont_2ao3o"]
 font_names = PackedStringArray("Century")
+
+[sub_resource type="SystemFont" id="SystemFont_ci8il"]
+font_names = PackedStringArray("Century")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vs86a"]
+
+[sub_resource type="Theme" id="Theme_bibeo"]
+Button/font_sizes/font_size = 36
+Button/fonts/font = SubResource("SystemFont_ci8il")
+Button/styles/normal = SubResource("StyleBoxEmpty_vs86a")
 
 [sub_resource type="Environment" id="Environment_7rcr7"]
 ambient_light_source = 2
@@ -74,6 +84,7 @@ shortcut_keys_enabled = false
 
 [node name="Options" type="VBoxContainer" parent="UI/DialogueBox/MarginContainer"]
 layout_mode = 2
+theme = SubResource("Theme_bibeo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7rcr7")
