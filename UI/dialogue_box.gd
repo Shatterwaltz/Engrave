@@ -2,6 +2,7 @@ extends Control
 class_name DialogueBox
 
 signal display_finished
+signal option_selected(option: String)
 
 var lines: Array[String] = []
 var current_line: String = ""
@@ -11,13 +12,17 @@ var typing: bool = false
 var typing_index: int = 1
 
 @onready var rich_text_label: RichTextLabel = $MarginContainer/RichTextLabel
+@onready var options: VBoxContainer = $MarginContainer/Options
 
 func _ready():
 	DialogueManager.dialogue_box = self
 	display_finished.connect(DialogueManager._on_display_finished)
+	option_selected.connect(DialogueManager._on_choice_made)
 
 func display_dialogue(p_lines: Array[String]):
-	lines = p_lines
+	rich_text_label.visible = true
+	options.visible = false
+	lines = p_lines.duplicate()
 	advance_text()
 
 func advance_text():
@@ -55,6 +60,24 @@ func type_next_character():
 		typing = false
 
 func _unhandled_input(_event):
-	if GameState.game_state == Enums.GameStates.DIALOGUE:
+	if GameState.game_state == Enums.GameStates.DIALOGUE && rich_text_label.visible:
 		if Input.is_action_just_pressed("confirm"):
 			advance_text()
+
+func display_options(option_list: Array[String]):
+	rich_text_label.visible = false
+	options.visible = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	var option_id: int = 0
+	for option in option_list:
+		var option_button: Button = Button.new()
+		option_button.text = option
+		option_button.button_up.connect(_option_selected.bind(option_id, option))
+		options.add_child(option_button)
+		option_id += 1
+
+func _option_selected(option_id: int, option_text: String):
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	for c in options.get_children():
+		c.queue_free()
+	option_selected.emit(option_id, option_text)
