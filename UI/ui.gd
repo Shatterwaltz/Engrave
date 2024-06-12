@@ -16,8 +16,12 @@ func _process(_delta):
 
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("pause"):
-		pause_game()
+		toggle_pause_game()
 
-func pause_game():
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
+func toggle_pause_game():
+	if GameState.game_state == Enums.GameStates.ACTIVE:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		GameState.set_game_state(Enums.GameStates.PAUSE)
+	elif GameState.game_state == Enums.GameStates.PAUSE:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		GameState.set_game_state(Enums.GameStates.ACTIVE)

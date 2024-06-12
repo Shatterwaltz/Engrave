@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://UI/dialogue_box.gd" id="5_3q8ca"]
 
 [sub_resource type="SystemFont" id="SystemFont_2ao3o"]
+font_names = PackedStringArray("Century")
 
 [sub_resource type="Environment" id="Environment_7rcr7"]
 ambient_light_source = 2
