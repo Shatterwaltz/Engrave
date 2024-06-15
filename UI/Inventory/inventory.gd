@@ -1,7 +1,7 @@
 extends Node
 class_name Inventory
 
-@onready var items_container: GridContainer = $VBoxContainer/Items
+@onready var items_container: GridContainer = $VBoxContainer/MarginContainer/Items
 var item_slot_list: Array[ItemSlot] = []
 const ITEM_SLOT_SCENE: PackedScene = preload("res://UI/Inventory/ItemSlot.tscn")
 
