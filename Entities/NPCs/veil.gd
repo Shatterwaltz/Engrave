@@ -31,4 +31,4 @@ func _on_choice_made(_choice_id: int, choice_text: String):
 	print(choice_text + "was selected")
 
 func _on_lines_finish():
-	print("Veil understands the conversation is over.")
+	pass
