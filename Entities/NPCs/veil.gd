@@ -25,10 +25,13 @@ func _ready():
 	c6.dialogue = ["Felt like it.", "I wasn't sure if I should be honest."]
 func _on_interact():
 	DialogueManager.conversation_finished.connect(_on_lines_finish, 4)
+	DialogueManager.option_selected.connect(_on_choice_made, 4)
 	DialogueManager.begin_conversation(c1, Enums.Character.VEIL)
 
 func _on_choice_made(_choice_id: int, choice_text: String):
-	print(choice_text + "was selected")
+	print("hmm")
+	if _choice_id ==0 && choice_text == "Yes.":
+		GameState.add_to_inventory(preload("res://UI/Inventory/ItemIcon.tscn").instantiate())
 
 func _on_lines_finish():
 	pass

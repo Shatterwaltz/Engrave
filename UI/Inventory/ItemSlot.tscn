@@ -1,11 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://6gxlg2y6mynw"]
+[gd_scene load_steps=3 format=3 uid="uid://6gxlg2y6mynw"]
 
 [ext_resource type="Texture2D" uid="uid://c386tdgacud4i" path="res://Assets/UI/item_slot_bg.png" id="1_uue23"]
+[ext_resource type="Script" path="res://UI/Inventory/item_slot.gd" id="2_ea6g1"]
 
 [node name="ItemSlot" type="TextureRect"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 128.0
+offset_bottom = 128.0
 texture = ExtResource("1_uue23")
+script = ExtResource("2_ea6g1")

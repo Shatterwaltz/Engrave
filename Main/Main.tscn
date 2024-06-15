@@ -43,10 +43,10 @@ script = ExtResource("1_0qyd7")
 [node name="Inventory" type="MarginContainer" parent="UI"]
 visible = false
 layout_mode = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 200
-theme_override_constants/margin_bottom = 100
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
 script = ExtResource("2_lieht")
 
 [node name="InventoryBg" type="TextureRect" parent="UI/Inventory"]
@@ -61,8 +61,10 @@ layout_mode = 2
 
 [node name="Items" type="GridContainer" parent="UI/Inventory/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 30
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
 columns = 5
 
 [node name="InteractPrompt" type="TextureRect" parent="UI"]
