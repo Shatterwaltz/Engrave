@@ -7,16 +7,22 @@ var current_speaker: Enums.Character = Enums.Character.SYSTEM
 
 # Assigned by UI at load time
 var dialogue_box: DialogueBox
+var dialogue_box_alter: NinePatchRect
 
 @export var speaker_texture_map: Dictionary = {
 	Enums.Character.SYSTEM: preload("res://Assets/UI/dialogue_box.png"),
 	Enums.Character.VEIL: preload("res://Assets/UI/dialogue_box_veil.png")
+}
+@export var speaker_alt_texture_map: Dictionary = {
+	Enums.Character.SYSTEM: preload("res://Assets/UI/dialogue_box.png"),
+	Enums.Character.VEIL: preload("res://Assets/UI/dialogue_box_veil_alter.png")
 }
 
 func begin_conversation(conversation: Conversation, speaker: Enums.Character = Enums.Character.SYSTEM):
 	current_conversation = conversation
 	current_speaker = speaker
 	dialogue_box.texture = speaker_texture_map[speaker]
+	dialogue_box_alter.texture = speaker_alt_texture_map[speaker]
 	if conversation.flag_to_set:
 		GameState.set_flag(conversation.flag_to_set)
 	if !conversation.is_choice:

@@ -3,11 +3,13 @@ class_name UI
 
 @onready var interact_prompt: TextureRect = $InteractPrompt
 @onready var dialogue_box = $DialogueBox
+@onready var dialogue_box_alter = $DialogueBox/DialogueBoxAlter
 @onready var inventory = $Inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	DialogueManager.dialogue_box = dialogue_box
+	DialogueManager.dialogue_box_alter = dialogue_box_alter
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 

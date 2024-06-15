@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://djytgd1its24k"]
+[gd_scene load_steps=17 format=3 uid="uid://djytgd1its24k"]
 
 [ext_resource type="Script" path="res://UI/ui.gd" id="1_0qyd7"]
 [ext_resource type="PackedScene" uid="uid://gy5q14223wy8" path="res://Areas/Debug Room/DebugRoom.tscn" id="1_ykn47"]
@@ -22,6 +22,44 @@ Button/font_sizes/font_size = 36
 Button/fonts/font = SubResource("SystemFont_ci8il")
 Button/styles/normal = SubResource("StyleBoxEmpty_vs86a")
 
+[sub_resource type="Animation" id="Animation_rrxvp"]
+resource_name = "FadeRepeat"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBoxAlter:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m23wb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogueBoxAlter:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1bnt"]
+_data = {
+"FadeRepeat": SubResource("Animation_rrxvp"),
+"RESET": SubResource("Animation_m23wb")
+}
+
 [sub_resource type="Environment" id="Environment_7rcr7"]
 ambient_light_source = 1
 ambient_light_color = Color(0.909804, 0.909804, 0.909804, 1)
@@ -41,6 +79,7 @@ theme_override_constants/margin_bottom = 50
 script = ExtResource("1_0qyd7")
 
 [node name="Inventory" type="MarginContainer" parent="UI"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
@@ -95,6 +134,21 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 script = ExtResource("5_3q8ca")
 
+[node name="DialogueBoxAlter" type="NinePatchRect" parent="UI/DialogueBox"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(1000, 280)
+offset_right = 1000.0
+offset_bottom = 280.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 9
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="UI/DialogueBox"]
 layout_mode = 1
 anchors_preset = 15
@@ -120,6 +174,12 @@ shortcut_keys_enabled = false
 [node name="Options" type="VBoxContainer" parent="UI/DialogueBox/MarginContainer"]
 layout_mode = 2
 theme = SubResource("Theme_bibeo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/DialogueBox"]
+libraries = {
+"": SubResource("AnimationLibrary_i1bnt")
+}
+autoplay = "FadeRepeat"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7rcr7")
